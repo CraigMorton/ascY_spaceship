@@ -101,7 +101,7 @@ public class GameLayout extends SurfaceView implements Runnable {
 //                thread = null;
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                Log.e("<=> - layout",e.getMessage());
+                Log.e("<=> - layout", e.getMessage());
             }
         }
         thread = null;
