@@ -67,6 +67,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
     private void renderItem(CanvasEntity item) {
         paint.setTextSize(item.getAsciiSize());
         paint.setColor(item.getColour());
+
         float xPosPercentage = item.getXPos();
         float xPosMultiplier = xPosPercentage / 100;
         int xPos = (int) (xPosMultiplier * screenWidth);
@@ -74,8 +75,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
         float yPosMultiplier = yPosPercentage / 100;
         int yPos = (int) (yPosMultiplier * screenHeight);
 
-        // I was casting the multiplier (which would always be 0) BEFORE multiplying by the screen dimension
-        // multiplication must be in brackets, THEN cast it.
+
 
         Log.d("<=>", Integer.toString(xPos) + " " + Integer.toString(yPos));
 //        xPos = screenWidth / 2;

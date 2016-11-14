@@ -7,9 +7,6 @@ import android.graphics.Color;
  */
 public class SpaceShip extends CanvasEntity{
 
-    // I was shadowing the xPos and yPos that actually have getters in the CanvasEntity abstract class.
-    // Which meant they were always 0...
-
     public SpaceShip(){
         colour = Color.WHITE;
         ascii = new char[] {'<', '=', '>'};
