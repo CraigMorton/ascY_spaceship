@@ -1,18 +1,18 @@
 package me.craigmorton.craig.asc_yspaceship;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 
 /**
  * Created by CraigMorton on 15/08/2016.
  */
 public class Reward extends CanvasEntity {
-    private static final char[] ASCII_ART = {'$'};
 
     public Reward() {
-
+        colour = Color.YELLOW;
+        ascii = new char[] {'$'};
     }
+    protected void updatePosition() {
 
-    public Reward(Canvas canvas, int xPos, int yPos) {
-        super(xPos, yPos);
     }
 }

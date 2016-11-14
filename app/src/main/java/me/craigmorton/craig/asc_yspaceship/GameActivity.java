@@ -20,6 +20,7 @@ public class GameActivity extends Activity {
         removeTitleBar();
 
         surfaceLayout = new CanvasLayout(this);
+        surfaceLayout.resume();
         setContentView(surfaceLayout);
     }
 

@@ -1,23 +1,29 @@
 package me.craigmorton.craig.asc_yspaceship;
 
+import android.graphics.Color;
+
 /**
  * Created by user on 04/05/2016.
  */
 public class SpaceShip extends CanvasEntity{
 
-    private int yPos;
-    //Xposition should be constant
-    private final int xPos = 1;
-
-    protected static final char[] ASCII_ART = {'<', '=', '>'};
+    // I was shadowing the xPos and yPos that actually have getters in the CanvasEntity abstract class.
+    // Which meant they were always 0...
 
     public SpaceShip(){
-        yPos = 0;
+        colour = Color.WHITE;
+        ascii = new char[] {'<', '=', '>'};
+        asciiSize = 40;
+        xPos = 25;
+        yPos = 25;
+
     }
 
-    public SpaceShip(int yPos) {
-        this.yPos = yPos;
+    protected void updatePosition() {
+
     }
+
+
 
     @Override
     protected void setXPos(int newPos){
