@@ -3,38 +3,13 @@ package me.craigmorton.craig.asc_yspaceship;
 /**
  * Created by user on 04/05/2016.
  */
-public class Obstacle {
+public class Obstacle extends CanvasEntity{
 
-    // class variables
-    private float mXPos;
-    private float mYPos;
-
-    // static class variables
     private static final char[] ASCII_ART = {'#'};
 
+//    public Obstacle(){
+//        xPos = 0;
+//        yPos = 0;
+//    }
 
-    // methods
-
-
-
-
-
-
-
-    // CONSTRUCTORS
-
-    public Obstacle(){
-        mXPos = 0;
-        mYPos = 0;
-    }
-
-
-    //GETTERS / SETTERS
-
-    public float getmXPos() {
-        return mXPos;
-    }
-    public float getmYPos() {
-        return mYPos;
-    }
 }

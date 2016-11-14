@@ -12,8 +12,8 @@ import android.view.WindowManager;
  */
 public class GameActivity extends Activity {
 
-    GameLayout layoutClass;
-    protected static DisplayMetrics mDisplayMetrics;
+    CanvasLayout layoutClass;
+    protected static DisplayMetrics displayMetrics;
 
 
     @Override
@@ -24,12 +24,11 @@ public class GameActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-//        setContentView(R.layout.activity_game);
+        displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-        mDisplayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-
-        layoutClass = new GameLayout(this);
+        layoutClass = new CanvasLayout(this);
+        layoutClass.setOwnerActivity(this);
         setContentView(layoutClass);
 
 
@@ -39,11 +38,6 @@ public class GameActivity extends Activity {
     public void onConfigurationChanged(Configuration newConfig){
         super.onConfigurationChanged(newConfig);
 
-        mDisplayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(mDisplayMetrics);
-
-        layoutClass.getScreenSize();
-
 //        // Checks the orientation of the screen
 //        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
 //
@@ -51,6 +45,19 @@ public class GameActivity extends Activity {
 //
 //        }
 
+        updateDisplayMetrics();
+        layoutClass.updateScreenSize();
+
+    }
+
+    private void updateDisplayMetrics(){
+        displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+    }
+
+    protected DisplayMetrics getDisplayMetrics(){
+        updateDisplayMetrics();
+        return displayMetrics;
     }
 
     @Override

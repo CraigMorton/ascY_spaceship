@@ -3,41 +3,25 @@ package me.craigmorton.craig.asc_yspaceship;
 /**
  * Created by user on 04/05/2016.
  */
-public class SpaceShip {
+public class SpaceShip extends CanvasEntity{
 
-    // class variables
-    private float mYPos;
-    //Xposition should be constant!
-    private final float mXPos;
+    private int yPos;
+    //Xposition should be constant
+    private final int xPos = 1;
 
-    // static class varaibles
     protected static final char[] ASCII_ART = {'<', '=', '>'};
-//    private static final String ASCII_ART = "<=>";
-
-    // CONSTRUCTORS
-
-
-
-
-
 
     public SpaceShip(){
-        mXPos = 1;
-        mYPos = 0;
-
+        yPos = 0;
     }
 
-    //GETTERS / SETTERS
-
-
-
-
-    public float getmXPos() {
-        return mXPos;
+    public SpaceShip(int yPos) {
+        this.yPos = yPos;
     }
 
-    public float getmYPos() {
-        return mYPos;
+    @Override
+    protected void setXPos(int newPos){
+        return;
     }
 
 }
