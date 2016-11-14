@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -21,41 +22,36 @@ public class CanvasLayout extends SurfaceView implements Runnable {
     boolean rendering = false;
     private int screenWidth;
     private int screenHeight;
-    private int lastUpdated;
-    GameActivity ownerActivity;
-
-
-    Bitmap backgroundBitmap;
+//    private int lastUpdated;
+    private GameActivity activity;
+    Bitmap background;
     Canvas canvas;
     SurfaceHolder surfaceHolder;
 
     public CanvasLayout(Context context){
         super(context);
-        surfaceHolder = getHolder();
-
+        this.activity = (GameActivity) context;
         updateScreenSize();
+        surfaceHolder = getHolder();
+        background = Bitmap.createBitmap(screenWidth, screenHeight, Bitmap.Config.ARGB_8888);
 
-        Bitmap.Config conf = Bitmap.Config.ARGB_8888; // see other conf types
-        backgroundBitmap = Bitmap.createBitmap(screenWidth, screenHeight, conf);
-        // this creates a MUTABLE bitmap
-
-    }
-
-    protected void setOwnerActivity(GameActivity gameActivity){
-        this.ownerActivity = gameActivity;
     }
 
     protected void updateScreenSize(){
-        if (this.ownerActivity != null){
-            this.ownerActivity.getDisplayMetrics();
-            screenWidth = this.ownerActivity.getDisplayMetrics().widthPixels;
-            screenHeight = this.ownerActivity.getDisplayMetrics().heightPixels;
+        if (activity != null){
+            DisplayMetrics displayMetrics = activity.updateDisplayMetrics();
+            updateScreenSize(displayMetrics);
         }
+    }
+
+    protected void updateScreenSize(DisplayMetrics displayMetrics) {
+        screenWidth = displayMetrics.widthPixels;
+        screenHeight = displayMetrics.heightPixels;
     }
 
     private void reRender(){
         canvas = surfaceHolder.lockCanvas();
-        canvas.drawBitmap(backgroundBitmap, 0, 0, null);
+        canvas.drawBitmap(background, 0, 0, null);
 
         Paint paint = new Paint();
 //            paint.setColor(Color.BLACK);
@@ -63,12 +59,11 @@ public class CanvasLayout extends SurfaceView implements Runnable {
 //            float screenHeightFloat = (float) screenHeight;
 //            canvas.drawRect(0.0f, 0.0f, screenWidthFloat, screenHeightFloat, paint);
 //            canvas.drawColor(Color.BLACK);
-
+        paint.setStyle(Paint.Style.FILL_AND_STROKE);
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
         paint.setColor(Color.WHITE);
         paint.setTextSize(40);
-        paint.setStyle(Paint.Style.FILL_AND_STROKE);
         char[] textToDraw = SpaceShip.ASCII_ART;
         canvas.drawText(textToDraw, 0, textToDraw.length, 300, 300, paint);
 
