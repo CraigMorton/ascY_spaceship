@@ -15,25 +15,23 @@ public class GameActivity extends Activity {
     CanvasLayout surfaceLayout;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         removeTitleBar();
-
         surfaceLayout = new CanvasLayout(this);
         surfaceLayout.resume();
         setContentView(surfaceLayout);
     }
 
     @Override
-    public void onConfigurationChanged(Configuration newConfig){
+    public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
 
-//        // Checks the orientation of the screen
-//        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//
-//        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-//
-//        }
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+
+        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+
+        }
 
         updateDisplayMetrics();
     }
@@ -43,20 +41,20 @@ public class GameActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
-    protected DisplayMetrics updateDisplayMetrics(){
+    protected DisplayMetrics updateDisplayMetrics() {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics;
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
         surfaceLayout.pause();
     }
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         surfaceLayout.resume();
     }

@@ -11,13 +11,19 @@ public class SpaceShip extends CanvasEntity{
         colour = Color.WHITE;
         ascii = new char[] {'<', '=', '>'};
         asciiSize = 40;
-        xPos = 25;
-        yPos = 25;
+        xPos = 75;
+        yPos = 75;
 
     }
 
     protected void updatePosition() {
-
+        if (xPos > 50) {
+            xPos -= 50;
+            yPos -= 50;
+        } else if (xPos < 50) {
+            xPos += 50;
+            yPos += 50;
+        }
     }
 
 
