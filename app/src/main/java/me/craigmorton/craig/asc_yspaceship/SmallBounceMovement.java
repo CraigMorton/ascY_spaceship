@@ -7,10 +7,21 @@ package me.craigmorton.craig.asc_yspaceship;
 public class SmallBounceMovement implements Movement {
 
     public float updateXPos(float prevXPos) {
-        return 0.0f;
+        float newCoordMultiplier = prevXPos;
+        if (randomBoolean()) {
+            newCoordMultiplier += 0.05f;
+        } else {
+            newCoordMultiplier -= 0.05f;
+        }
+        return newCoordMultiplier;
     }
 
     public float updateYPos(float prevYPos) {
         return 0.0f;
+    }
+
+    private boolean randomBoolean() {
+        int randomNumber = (int) Math.floor(Math.random() * 2);
+        return (randomNumber == 1);
     }
 }

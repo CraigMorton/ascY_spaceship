@@ -18,7 +18,9 @@ public class SmallBounceMovementTest {
     }
 
     @Test
-    public void canCreateMovementObject() {
-
+    public void movesXPosBy5Percent() {
+        float xPos = 0.5f;
+        float newXPos = movement.updateXPos(xPos);
+        assertEquals(0.55f, newXPos, 0.01f);
     }
 }
