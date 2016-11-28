@@ -100,10 +100,6 @@ public class CanvasLayout extends SurfaceView implements Runnable {
                 resume();
                 continue;
             }
-            // calling updateScreenSize here was obviously unnecessary,
-            // and was causing weird performance issues, ironically, mainly issues with slow updating of DisplayMetrics
-            // and filling up AllocSpace with a constant barrage of DisplayMetrics objects
-//            updateScreenSize();
             render();
         }
     }

@@ -19,8 +19,6 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setUpFullscreen();
         surfaceLayout = new CanvasLayout(this);
-        // Have to call this here as requires reference to surfaceLayout
-        // Calling in CanvasLayout.onCreate caused NPE / missing initial displayMetrics in CanvasLayout
         refreshDisplayMetrics();
         setContentView(surfaceLayout);
     }
