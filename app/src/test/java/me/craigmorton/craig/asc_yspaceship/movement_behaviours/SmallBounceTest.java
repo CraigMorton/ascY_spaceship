@@ -1,9 +1,7 @@
-package me.craigmorton.craig.asc_yspaceship;
+package me.craigmorton.craig.asc_yspaceship.movement_behaviours;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import me.craigmorton.craig.asc_yspaceship.movement_behaviours.SmallBounce;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,7 +15,7 @@ public class SmallBounceTest {
 
     @Before
     public void before() {
-        movement = new SmallBounce();
+        movement = new SmallBounce(new FakeRandomBoolean());
     }
 
     @Test
