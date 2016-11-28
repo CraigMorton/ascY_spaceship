@@ -16,18 +16,18 @@ public class SmallBounce implements MovementBehaviour {
         this.randomBooleanGenerator = randomBooleanGenerator;
     }
 
-    public float updateXPos(float prevXPos) {
-        float newCoordMultiplier = prevXPos;
+    public float updateXMultiplier(float prevXPos) {
+        return 0.0f;
+    }
+
+    public float updateYMultiplier(float prevYPos) {
+        float newCoordMultiplier = prevYPos;
         if (randomBooleanGenerator.getRandom()) {
             newCoordMultiplier += 0.025f;
         } else {
             newCoordMultiplier -= 0.025f;
         }
         return newCoordMultiplier;
-    }
-
-    public float updateYPos(float prevYPos) {
-        return 0.0f;
     }
 
 }

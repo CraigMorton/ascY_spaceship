@@ -5,7 +5,7 @@ package me.craigmorton.craig.asc_yspaceship.movement_behaviours;
  */
 
 public interface MovementBehaviour {
-    float updateXPos(float prevXPos);
-    float updateYPos(float prevYPos);
+    float updateXMultiplier(float prevXPos);
+    float updateYMultiplier(float prevYPos);
 
 }
