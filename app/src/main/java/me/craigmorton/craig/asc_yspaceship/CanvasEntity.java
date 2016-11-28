@@ -6,7 +6,7 @@ package me.craigmorton.craig.asc_yspaceship;
 public abstract class CanvasEntity {
 
     protected float xCoordMultiplier;
-    protected float yCoordMultipler;
+    protected float yCoordMultiplier;
     protected int colour;
     protected char[] asciiArt;
 
@@ -16,10 +16,11 @@ public abstract class CanvasEntity {
 
     public CanvasEntity(float xCoordMultiplier, float yCoordMultiplier) {
         this.xCoordMultiplier = xCoordMultiplier;
-        this.yCoordMultipler = yCoordMultiplier;
+        this.yCoordMultiplier = yCoordMultiplier;
     }
 
     protected abstract void updatePosition();
+
 
     public String getString() {
         String asciiArt = "";
@@ -28,12 +29,11 @@ public abstract class CanvasEntity {
         }
         return asciiArt;
     }
-
-    protected float getXCoordMultipler() {
+    protected float getXCoordMultiplier() {
         return xCoordMultiplier;
     }
-    protected float getYCoordMultipler() {
-        return yCoordMultipler;
+    protected float getYCoordMultiplier() {
+        return yCoordMultiplier;
     }
     protected int getColour() {
         return colour;
@@ -54,7 +54,7 @@ public abstract class CanvasEntity {
         xCoordMultiplier = newXMultiplier;
     }
     protected void setYCoordMultipler(float newYMultiplier) {
-        yCoordMultipler = newYMultiplier;
+        yCoordMultiplier = newYMultiplier;
     }
 
 }

@@ -72,8 +72,8 @@ public class CanvasLayout extends SurfaceView implements Runnable {
         paint.setTextSize(40);
         paint.setColor(item.getColour());
 
-        int xPos = (int) (item.getXCoordMultipler() * width);
-        int yPos = (int) (item.getYCoordMultipler() * height);
+        int xPos = (int) (item.getXCoordMultiplier() * width);
+        int yPos = (int) (item.getYCoordMultiplier() * height);
 
         Log.d("<=>", "rendering " + item.getString() + " at " + Integer.toString(xPos) + " x " + Integer.toString(yPos));
         canvas.drawText(item.getAsciiArt(), 0, item.getAsciiArt().length , xPos, yPos, paint);

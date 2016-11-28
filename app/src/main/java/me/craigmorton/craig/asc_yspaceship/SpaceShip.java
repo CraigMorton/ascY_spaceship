@@ -11,17 +11,17 @@ public class SpaceShip extends CanvasEntity{
         colour = Color.WHITE;
         asciiArt = new char[] {'<', '=', '>'};
 //        asciiSize = 40;
-        xCoordMultiplier = 0.75f;
-        yCoordMultipler = 0.75f;
+        xCoordMultiplier = 0.05f;
+        yCoordMultiplier = 0.75f;
     }
 
     protected void updatePosition() {
-        if (xCoordMultiplier > 0.5f) {
-            xCoordMultiplier -= 0.5f;
-            yCoordMultipler -= 0.5f;
-        } else if (xCoordMultiplier < 0.5f) {
-            xCoordMultiplier += 0.5f;
-            yCoordMultipler += 0.5f;
+        if (yCoordMultiplier > 0.5f) {
+//            xCoordMultiplier -= 0.5f;
+            yCoordMultiplier -= 0.5f;
+        } else if (yCoordMultiplier < 0.5f) {
+//            xCoordMultiplier += 0.5f;
+            yCoordMultiplier += 0.5f;
         }
     }
 
