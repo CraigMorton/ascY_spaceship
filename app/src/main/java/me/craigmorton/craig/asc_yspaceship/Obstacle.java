@@ -9,7 +9,7 @@ public class Obstacle extends CanvasEntity{
 
     public Obstacle(){
         colour = Color.GRAY;
-        ascii = new char[] {'#'};
+        asciiArt = new char[] {'#'};
     }
 
     protected void updatePosition() {

@@ -17,34 +17,18 @@ public class GameActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        removeTitleBar();
+        setUpFullscreen();
         surfaceLayout = new CanvasLayout(this);
-        surfaceLayout.resume();
+        // Have to call this here as requires reference to surfaceLayout
+        // Calling in CanvasLayout.onCreate caused NPE / missing initial displayMetrics in CanvasLayout
+        refreshDisplayMetrics();
         setContentView(surfaceLayout);
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-
-        } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-
-        }
-
-        updateDisplayMetrics();
-    }
-
-    private void removeTitleBar() {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-    }
-
-    protected DisplayMetrics updateDisplayMetrics() {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics;
+        refreshDisplayMetrics();
     }
 
     @Override
@@ -59,6 +43,16 @@ public class GameActivity extends Activity {
         surfaceLayout.resume();
     }
 
+    private void setUpFullscreen() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+    }
 
+    protected void refreshDisplayMetrics() {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        if (surfaceLayout == null) return;
+        surfaceLayout.updateScreenSize(displayMetrics);
+    }
 
 }

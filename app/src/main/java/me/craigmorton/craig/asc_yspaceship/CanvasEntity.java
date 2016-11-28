@@ -5,46 +5,56 @@ package me.craigmorton.craig.asc_yspaceship;
  */
 public abstract class CanvasEntity {
 
-    protected int xPos;
-    protected int yPos;
+    protected float xCoordMultiplier;
+    protected float yCoordMultipler;
     protected int colour;
-    protected char[] ascii;
-    protected float asciiSize;
+    protected char[] asciiArt;
 
     public CanvasEntity() {
 
     }
 
-    public CanvasEntity(int xPos, int yPos) {
-        this.xPos = xPos;
-        this.yPos = yPos;
+    public CanvasEntity(float xCoordMultiplier, float yCoordMultiplier) {
+        this.xCoordMultiplier = xCoordMultiplier;
+        this.yCoordMultipler = yCoordMultiplier;
     }
 
     protected abstract void updatePosition();
 
-    protected int getXPos() {
-        return xPos;
+    public String getString() {
+        String asciiArt = "";
+        for (char character : this.asciiArt) {
+            asciiArt += character;
+        }
+        return asciiArt;
     }
-    protected int getYPos() {
-        return yPos;
+
+    protected float getXCoordMultipler() {
+        return xCoordMultiplier;
+    }
+    protected float getYCoordMultipler() {
+        return yCoordMultipler;
     }
     protected int getColour() {
         return colour;
     }
-    protected char[] getAscii() {
-        return ascii;
-    }
-    protected float getAsciiSize() {
-        return asciiSize;
+    protected char[] getAsciiArt() {
+        // clone to avoid blatting asciiArt ie. item.getAsciiArt()[0] = '%';
+        int numChars = asciiArt.length;
+        char[] clone = new char[numChars];
+        for (int i = 0; i < numChars; i++) {
+            clone[i] = asciiArt[i];
+        }
+        return clone;
     }
     protected void setColour(int newColour) {
         colour = newColour;
     }
-    protected void setXPos(int newPos) {
-        xPos = newPos;
+    protected void setXCoordMultiplier(float newXMultiplier) {
+        xCoordMultiplier = newXMultiplier;
     }
-    protected void setYPos(int newPos) {
-        yPos = newPos;
+    protected void setYCoordMultipler(float newYMultiplier) {
+        yCoordMultipler = newYMultiplier;
     }
 
 }

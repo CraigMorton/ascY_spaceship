@@ -1,6 +1,5 @@
 package me.craigmorton.craig.asc_yspaceship;
 
-import android.graphics.Canvas;
 import android.graphics.Color;
 
 /**
@@ -10,18 +9,18 @@ public class Reward extends CanvasEntity {
 
     public Reward() {
         colour = Color.YELLOW;
-        ascii = new char[] {'$'};
-        asciiSize = 40;
-        xPos = 25;
-        yPos = 25;
+        asciiArt = new char[] {'$'};
+//        asciiSize = 40;
+        xCoordMultiplier = 0.25f;
+        yCoordMultipler = 0.25f;
     }
     protected void updatePosition() {
-        if (xPos > 50) {
-            xPos -= 50;
-            yPos -= 50;
-        } else if (xPos < 50) {
-            xPos += 50;
-            yPos += 50;
+        if (xCoordMultiplier > 0.5f) {
+            xCoordMultiplier -= 0.5f;
+            yCoordMultipler -= 0.5f;
+        } else if (xCoordMultiplier < 0.5f) {
+            xCoordMultiplier += 0.5f;
+            yCoordMultipler += 0.5f;
         }
     }
 }
