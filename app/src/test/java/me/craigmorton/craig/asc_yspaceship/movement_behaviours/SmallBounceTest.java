@@ -19,9 +19,9 @@ public class SmallBounceTest {
     }
 
     @Test
-    public void movesXPosBy5Percent() {
+    public void movesYMultiplier2point5Percent() {
         float xPos = 0.5f;
         float newXPos = movement.updateXPos(xPos);
-        assertEquals(0.55f, newXPos, 0.01f);
+        assertEquals(0.525f, newXPos, 0.01f);
     }
 }
