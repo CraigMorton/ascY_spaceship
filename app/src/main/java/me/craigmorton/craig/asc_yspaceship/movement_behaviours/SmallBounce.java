@@ -1,10 +1,12 @@
-package me.craigmorton.craig.asc_yspaceship;
+package me.craigmorton.craig.asc_yspaceship.movement_behaviours;
+
+import me.craigmorton.craig.asc_yspaceship.movement_behaviours.MovementBehaviour;
 
 /**
  * Created by user on 28/11/2016.
  */
 
-public class SmallBounceMovement implements Movement {
+public class SmallBounce implements MovementBehaviour {
 
     public float updateXPos(float prevXPos) {
         float newCoordMultiplier = prevXPos;

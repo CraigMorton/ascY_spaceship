@@ -2,19 +2,22 @@ package me.craigmorton.craig.asc_yspaceship;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import me.craigmorton.craig.asc_yspaceship.movement_behaviours.SmallBounce;
+
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by user on 28/11/2016.
  */
 
-public class SmallBounceMovementTest {
+public class SmallBounceTest {
 
-    SmallBounceMovement movement;
+    SmallBounce movement;
 
     @Before
     public void before() {
-        movement = new SmallBounceMovement();
+        movement = new SmallBounce();
     }
 
     @Test
