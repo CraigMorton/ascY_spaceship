@@ -35,7 +35,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
         super(context);
         surfaceHolder = getHolder();
         activity = (GameActivity) context;
-        FPS = 60;
+        FPS = 5;
         canvasSetUp();
         populateCanvasEntities();
         resume();
@@ -83,14 +83,20 @@ public class CanvasLayout extends SurfaceView implements Runnable {
 
 
     private void render(){
-        long timeNow = System.currentTimeMillis();
-        if (timeNow - lastUpdated < 1000) return;
-        lastUpdated = timeNow;
+        if (frameDelayUnfinished()) return;
+        lastUpdated = System.currentTimeMillis();
 
         canvas = surfaceHolder.lockCanvas();
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
         renderAllEntities();
         surfaceHolder.unlockCanvasAndPost(canvas);
+    }
+
+    private boolean frameDelayUnfinished() {
+        long timeNow = System.currentTimeMillis();
+        long millisSinceUpdate = timeNow - lastUpdated;
+        float framesPerMillis = (1000 / FPS);
+        return (millisSinceUpdate < framesPerMillis);
     }
 
 
