@@ -13,6 +13,11 @@ public abstract class CanvasEntity {
     protected char[] asciiArt;
     protected MovementBehaviour movementBehaviour;
 
+    public CanvasEntity() {
+        xCoordMultiplier = 0.5f;
+        yCoordMultiplier = 0.5f;
+    }
+
     public CanvasEntity(float xCoordMultiplier, float yCoordMultiplier, MovementBehaviour movementBehaviour) {
         this.xCoordMultiplier = xCoordMultiplier;
         this.yCoordMultiplier = yCoordMultiplier;
