@@ -12,7 +12,4 @@ public class Obstacle extends CanvasEntity{
         asciiArt = new char[] {'#'};
     }
 
-    protected void updatePosition() {
-
-    }
 }

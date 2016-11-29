@@ -20,8 +20,4 @@ public class Reward extends CanvasEntity {
         asciiArt = new char[] {'$'};
     }
 
-    protected void updatePosition() {
-        xCoordMultiplier = movementBehaviour.updateXMultiplier(xCoordMultiplier);
-        yCoordMultiplier = movementBehaviour.updateYMultiplier(yCoordMultiplier);
-    }
 }
