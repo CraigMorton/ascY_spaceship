@@ -12,6 +12,8 @@ import android.view.SurfaceView;
 
 import java.util.ArrayList;
 
+import me.craigmorton.craig.asc_yspaceship.movement_behaviours.SmallBounce;
+
 /**
  * Created by user on 04/05/2016.
  */
@@ -49,7 +51,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
 
     private void populateCanvasEntities() {
         canvasEntities.add(new SpaceShip());
-        canvasEntities.add(new Reward());
+        canvasEntities.add(new Reward(1f, 0.5f, new SmallBounce()));
     }
 
     protected void updateScreenSize(){
