@@ -83,7 +83,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
 
 
     private void render(){
-        if (frameDelayUnfinished()) return;
+        if (awaitingFrameDelay()) return;
         lastUpdated = System.currentTimeMillis();
 
         canvas = surfaceHolder.lockCanvas();
@@ -92,7 +92,7 @@ public class CanvasLayout extends SurfaceView implements Runnable {
         surfaceHolder.unlockCanvasAndPost(canvas);
     }
 
-    private boolean frameDelayUnfinished() {
+    private boolean awaitingFrameDelay() {
         long timeNow = System.currentTimeMillis();
         long millisSinceUpdate = timeNow - lastUpdated;
         float framesPerMillis = (1000 / FPS);
