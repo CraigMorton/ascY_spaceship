@@ -20,8 +20,15 @@ public class SmallBounceTest {
 
     @Test
     public void movesYMultiplier2point5Percent() {
-        float xPos = 0.5f;
-        float newXPos = movement.updateYMultiplier(xPos);
-        assertEquals(0.525f, newXPos, 0.01f);
+        float yMultiplier = 0.5f;
+        float newYMultiplier = movement.updateYMultiplier(yMultiplier);
+        assertEquals(0.525f, newYMultiplier, 0.001f);
+    }
+
+    @Test
+    public void movesXMultiplier1Percent() {
+        float xMultiplier = 1f;
+        float newXMultiplier = movement.updateXMultiplier(xMultiplier);
+        assertEquals(0.99f, newXMultiplier, 0.001f);
     }
 }

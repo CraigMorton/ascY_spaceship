@@ -17,7 +17,7 @@ public class SmallBounce implements MovementBehaviour {
     }
 
     public float updateXMultiplier(float prevXPos) {
-        return 0.0f;
+        return prevXPos -= 0.01f;
     }
 
     public float updateYMultiplier(float prevYPos) {
