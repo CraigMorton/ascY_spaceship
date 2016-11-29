@@ -1,5 +1,7 @@
 package me.craigmorton.craig.asc_yspaceship;
 
+import me.craigmorton.craig.asc_yspaceship.movement_behaviours.MovementBehaviour;
+
 /**
  * Created by CraigMorton on 15/08/2016.
  */
@@ -9,9 +11,12 @@ public abstract class CanvasEntity {
     protected float yCoordMultiplier;
     protected int colour;
     protected char[] asciiArt;
+    protected MovementBehaviour movementBehaviour;
 
-    public CanvasEntity() {
-
+    public CanvasEntity(float xCoordMultiplier, float yCoordMultiplier, MovementBehaviour movementBehaviour) {
+        this.xCoordMultiplier = xCoordMultiplier;
+        this.yCoordMultiplier = yCoordMultiplier;
+        this.movementBehaviour = movementBehaviour;
     }
 
     public CanvasEntity(float xCoordMultiplier, float yCoordMultiplier) {
