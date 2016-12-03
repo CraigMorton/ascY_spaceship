@@ -18,6 +18,11 @@ public class SpaceShip extends CanvasEntity{
         setUpAppearance();
     }
 
+    public SpaceShip(float xMultiplier, float yMultiplier) {
+        super(xMultiplier, yMultiplier);
+        setUpAppearance();
+    }
+
     public SpaceShip(float xMultiplier, float yMultiplier, MovementBehaviour movementBehaviour) {
         super(xMultiplier, yMultiplier, movementBehaviour);
         setUpAppearance();
